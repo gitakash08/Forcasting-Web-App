@@ -6,10 +6,12 @@ const ForecastResults = ({ data }) => {
     return <p>No data available</p>;
   }
 
+  const sortedData = [...data].sort((a, b) => a.Predicted_Violations - b.Predicted_Violations);
+
   const columns = [
     { title: 'Transporters Name', dataIndex: 'TransportersName', key: 'TransportersName' },
-    { title: 'Truck Count', dataIndex: 'Truck_Count', key: 'Truck_Count' },
-    { title: 'Predicted Violations', dataIndex: 'Predicted_Violations', key: 'Predicted_Violations' },
+    // { title: 'Truck Count', dataIndex: 'Truck_Count', key: 'Truck_Count' },
+    { title: 'Predicted Avg. Violations', dataIndex: 'Predicted_Violations', key: 'Predicted_Violations' },
     // { title: 'Invoice Count', dataIndex: 'Invoice_Count', key: 'Invoice_Count' },
     // { title: 'Route Violation Count', dataIndex: 'Route_Violation_Count', key: 'Route_Violation_Count' },
     // { title: 'Speed Violation Count', dataIndex: 'Speed_Violation_Count', key: 'Speed_Violation_Count' },
@@ -20,8 +22,8 @@ const ForecastResults = ({ data }) => {
   return (
     <Table
       columns={columns}
-      dataSource={data}
-      rowKey="TransportersName"
+      dataSource={sortedData}
+      rowKey="Predicted_Violations"
       pagination={false}
       style={{ marginTop: 20 }}
     />

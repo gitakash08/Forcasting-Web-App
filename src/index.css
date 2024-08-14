@@ -1,5 +1,8 @@
 body {
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .site-layout-content {
@@ -16,4 +19,22 @@ body {
 
 .logo {
   color: #fff;
+}
+
+.form-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 500px;
+  overflow: hidden;
+}
+
+.table-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 500px; 
+  overflow-y: auto; 
 }

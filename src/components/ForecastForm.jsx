@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, InputNumber, message } from 'antd';
+import { Form, InputNumber, Button, message } from 'antd';
 import axios from 'axios';
 
 const ForecastForm = ({ setForecastData }) => {
@@ -7,6 +7,7 @@ const ForecastForm = ({ setForecastData }) => {
 
   const onFinish = async (values) => {
     try {
+      setForecastData([]);
       const response = await axios.post('http://localhost:5000/forecast', values);
       setForecastData(response.data);
     } catch (error) {
@@ -25,23 +26,32 @@ const ForecastForm = ({ setForecastData }) => {
       <Form.Item
         label="Month"
         name="month"
-        rules={[{ required: true, message: 'Please enter the month' }]}
+        rules={[
+          { required: true, message: 'Please enter the month' },
+          { type: 'number', min: 1, max: 12, message: 'Month must be between 1 and 12' }
+        ]}
       >
-        <Input />
+        <InputNumber min={1} max={12} style={{ width: '100%' }} />
       </Form.Item>
       <Form.Item
         label="Year"
         name="year"
-        rules={[{ required: true, message: 'Please enter the year' }]}
+        rules={[
+          { required: true, message: 'Please enter the year' },
+          { type: 'number', min: 2024, max: 2100, message: 'Year must be between 2024 and 2100' }
+        ]}
       >
-        <InputNumber min={2000} max={2100} style={{ width: '100%' }} />
+        <InputNumber min={2024} max={2100} style={{ width: '100%' }} />
       </Form.Item>
       <Form.Item
         label="Number of Transporters"
         name="num_transporters"
-        rules={[{ required: true, message: 'Please enter the number of transporters' }]}
+        rules={[
+          { required: true, message: 'Please enter the number of transporters' },
+          { type: 'number', min: 1, max: 10, message: 'Number of transporters must be between 1 and 10' }
+        ]}
       >
-        <InputNumber min={1} max={20} style={{ width: '100%' }} />
+        <InputNumber min={1} max={10} style={{ width: '100%' }} />
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
