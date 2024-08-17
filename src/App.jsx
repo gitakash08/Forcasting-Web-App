@@ -22,7 +22,7 @@ const App = () => {
         padding: '0 24px'
       }}>
         <div className="logo">
-          <Title level={2} style={{ color: 'white', margin: 0 }}>Forcastly.AI</Title>
+          <Title level={2} style={{ color: 'white', margin: 0 }}>Forecastly.AI</Title>
         </div>
       </Header>
       <Layout>
