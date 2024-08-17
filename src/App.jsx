@@ -22,28 +22,28 @@ const App = () => {
         padding: '0 24px'
       }}>
         <div className="logo">
-          <Title level={2} style={{ color: 'white', margin: 0 }}>Forecastly.AI</Title>
+          <Title level={3} style={{ color: 'white', margin: 0 }}>Forecastly.AI</Title>
         </div>
       </Header>
       <Layout>
         <Content style={{ 
-          padding: '4px 24px 0px 0px', 
-          marginTop: 71, 
-          overflow: 'auto', // Allow overflow
+          padding: '4px 16px', 
+          marginTop: 64, 
+          overflow: 'auto',
         }}>
-          <Row gutter={16} style={{ height: 'calc(100vh - 128px)', overflowY: 'auto' }}>
-            <Col span={6} style={{ paddingRight: 16 }}>
+          <Row gutter={[16, 16]} style={{ height: 'calc(100vh - 128px)', overflowY: 'auto' }}>
+            <Col xs={24} md={8} lg={6} style={{ paddingRight: 0 }}>
               <div className="form-container" style={{ 
                 background: '#fff', 
-                padding: 24 
+                padding: 16 
               }}>
                 <ForecastForm setForecastData={setForecastData} />
               </div>
             </Col>
-            <Col span={18}>
+            <Col xs={24} md={16} lg={18}>
               <div className="table-container" style={{ 
                 background: '#fff', 
-                padding: 24 
+                padding: 16 
               }}>
                 <ForecastResults data={forecastData} />
               </div>
