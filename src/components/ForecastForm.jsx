@@ -24,7 +24,7 @@ const ForecastForm = ({ setForecastData }) => {
       style={{ maxWidth: 600, margin: '0 auto' }}
     >
       <Form.Item
-        label="Month"
+        label="Month (Any Future Month)"
         name="month"
         rules={[
           { required: true, message: 'Please enter the month' },

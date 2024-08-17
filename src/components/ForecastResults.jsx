@@ -20,13 +20,16 @@ const ForecastResults = ({ data }) => {
   ];
 
   return (
-    <Table
-      columns={columns}
-      dataSource={sortedData}
-      rowKey="Predicted_Violations"
-      pagination={false}
-      style={{ marginTop: 20 }}
-    />
+    <div>
+      <h2>Prediction - Top 10 Transporter with least violation in a selected Month</h2>
+      <Table
+        columns={columns}
+        dataSource={sortedData}
+        rowKey="Predicted_Violations"
+        pagination={false}
+        style={{ marginTop: 20 }}
+      />
+    </div>
   );
 };
 
